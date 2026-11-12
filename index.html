@@ -1,0 +1,272 @@
+<!doctype html><html lang="fr"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Youth Leadership Hub – Défis, Badges et Mentorat Chrétien</title><meta name="description" content="Une plateforme mobile-first gratuite pour les jeunes du Sud‑Kivu : défis de leadership quotidiens, badges numériques, mentorat local et partage facile sur les réseaux sociaux."><meta name="keywords" content="Youth Leadership Hub, défis leadership, badges numériques, mentorat chrétien, partage WhatsApp, application mobile-first, Sud-Kivu, évangélisation, jeunes, leadership, foi"><link rel="canonical" href="https://danymumbere.github.io/youth-leadership-hub/"><link rel="manifest" href="manifest.webmanifest"><meta name="theme-color" content="#0a7d6c"><meta property="og:type" content="website"><meta property="og:site_name" content="The Lamp's Mark"><meta property="og:title" content="Youth Leadership Hub – Défis, Badges et Mentorat Chrétien"><meta property="og:description" content="Une plateforme mobile-first gratuite pour les jeunes du Sud‑Kivu : défis de leadership quotidiens, badges numériques, mentorat local et partage facile sur les réseaux sociaux."><meta property="og:url" content="https://danymumbere.github.io/youth-leadership-hub/"><meta property="og:image" content="https://danymumbere.github.io/youth-leadership-hub/og.svg"><meta property="og:image:alt" content="Youth Leadership Hub – Défis, Badges et Mentorat Chrétien"><meta property="og:locale" content="fr_FR"><meta name="twitter:card" content="summary_large_image"><meta name="twitter:title" content="Youth Leadership Hub – Défis, Badges et Mentorat Chrétien"><meta name="twitter:description" content="Une plateforme mobile-first gratuite pour les jeunes du Sud‑Kivu : défis de leadership quotidiens, badges numériques, mentorat local et partage facile sur les réseaux sociaux."><meta name="twitter:image" content="https://danymumbere.github.io/youth-leadership-hub/og.svg"><script type="application/ld+json">{"@context":"https://schema.org","@type":"WebApplication","name":"Youth Leadership Hub – Défis, Badges et Mentorat Chrétien","description":"Une plateforme mobile-first gratuite pour les jeunes du Sud‑Kivu : défis de leadership quotidiens, badges numériques, mentorat local et partage facile sur les réseaux sociaux.","url":"https://danymumbere.github.io/youth-leadership-hub/","applicationCategory":"LifestyleApplication","inLanguage":"fr","offers":{"@type":"Offer","price":"0","priceCurrency":"USD"},"creator":{"@type":"Organization","name":"The Lamp's Mark","url":"https://thelampsmark.pages.dev/"}}</script><link rel="stylesheet" href="style.css"></head><body><body>
+  <header class="app-header">
+    <h1>Youth Leadership Hub</h1>
+    <nav aria-label="Navigation principale">
+      <ul>
+        <li><a href="#dashboard" class="nav-link">Tableau de bord</a></li>
+        <li><a href="#challenges" class="nav-link">Défis</a></li>
+        <li><a href="#badges" class="nav-link">Badges</a></li>
+        <li><a href="#mentors" class="nav-link">Mentorat</a></li>
+        <li><a href="#share" class="nav-link">Partager</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main>
+    <!-- Section Tableau de bord -->
+    <section id="dashboard" class="section">
+      <h2>Bienvenue, Jean‑Baptiste !</h2>
+      <p class="intro">“Ressentez la fierté de relever un défi chaque jour et de voir votre foi se traduire en actions concrètes.”</p>
+      <div id="daily-challenge" class="card">
+        <h3>Défí quotidien</h3>
+        <p id="challenge-text">Cliquez sur “Nouveau défi” pour commencer.</p>
+        <button id="new-challenge-btn" class="btn-primary">Nouveau défi</button>
+      </div>
+
+      <div id="badge-summary" class="card">
+        <h3>Vos badges</h3>
+        <div id="badge-list" class="badge-grid"></div>
+      </div>
+
+      <div id="offline-status" class="offline-hint" aria-live="polite"></div>
+    </section>
+
+    <!-- Section Défis -->
+    <section id="challenges" class="section hidden">
+      <h2>Défis de leadership</h2>
+      <p>“Affichez vos victoires spirituelles comme des trophées, et inspirez vos amis à suivre votre exemple.”</p>
+      <div id="challenge-list" class="challenge-cards"></div>
+    </section>
+
+    <!-- Section Badges -->
+    <section id="badges" class="section hidden">
+      <h2>Vos badges numériques</h2>
+      <p>“Ne restez plus seul : trouvez un mentor qui partage vos rêves et vos prières, et grandissez ensemble.”</p>
+      <div id="earned-badges" class="badge-grid"></div>
+    </section>
+
+    <!-- Section Mentorat -->
+    <section id="mentors" class="section hidden">
+      <h2>Communauté de mentorat</h2>
+      <p>“Faites briller votre lumière sur Instagram/WhatsApp, et voyez votre influence grandir au-delà de votre classe.”</p>
+      <div id="mentor-cards" class=​"mentor-grid"></div>
+    </section>
+
+    <!-- Section Partage -->
+    <section id="share" class="section hidden">
+      <h2>Partagez votre progrès</h2>
+      <p>“Pas besoin de connexion permanente : téléchargez les modules une fois, progressez même hors ligne, et gardez le contrôle de votre temps.”</p>
+      <div class="share-buttons">
+        <button id="share-whatsapp" class="btn-share">Partager sur WhatsApp</button>
+        <button id="share-instagram" class="btn-share">Copier le lien pour Instagram</button>
+      </div>
+      <div id="share-message" class="hidden"></div>
+    </section>
+
+    <!-- Message d'évangélisation doux -->
+    <aside class="evangelism" aria-label="Message d'évangélisation">
+      <blockquote>
+        “Car Dieu a tant aimé le monde qu'il a donné son Fils unique ; que quiconque croit en lui ne périsse pas, mais ait la vie éternelle.” – Jean 3:16
+      </blockquote>
+      <p>Vos actions aujourd'hui reflètent l'amour de Dieu. Partagez cette lumière avec vos amis.</p>
+    </aside>
+  </main>
+
+  <!-- Modals (cachés par défaut) -->
+  <div id="mentor-modal" class="modal hidden" role="dialog" aria-labelledby="modal-title" aria-hidden="true">
+    <h3 id="modal-title"></h+Shift+Tab></h3>
+    <p id="modal-content"></p>
+    <button id="modal-close" class="btn-primary">Fermer</button>
+  </div>
+
+  <style>
+    /* CSS minimal, mobile-first */
+    :root {
+      --primary: #2a9d8f;
+      --primary-dark: #264653;
+      --accent: #e9c46a;
+      --text: #333;
+      --bg: #fdfdfd;
+      --card: #fff;
+      --badge: #f4a261;
+    }
+    body {
+      margin:0;
+      font-family: system-ui, -apple-system, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height:1.5;
+    }
+    .app-header {
+      background: var(--primary-dark);
+      color: #fff;
+      padding: 1rem;
+      text-align:center;
+    }
+    .app-header h1 { margin:0; font-size:1.5rem; }
+    .app-header nav ul {
+      list-style:none;
+      padding:0;
+      display:flex;
+      flex-wrap:wrap;
+      justify:center;
+      margin:1rem 0 0;
+    }
+    .app-header nav li { margin:0.3rem 0.5rem; }
+    .app-header nav a {
+      color:#fff;
+      text-decoration:none;
+      padding:0.4rem 0.8rem;
+      border:1px solid #fff;
+      border-radius:0.4rem;
+      display:inline-block;
+    }
+    .section { padding:1rem; }
+    .hidden { display:none; }
+    .card {
+      background: var(--card);
+      border-radius:0.8rem;
+      padding:1rem;
+      margin:1rem 0;
+      box-shadow:0 2px 6px rgba(0,0,0,0.1);
+    }
+    .btn-primary {
+      background: var(--primary);
+      color:#fff;
+      border:none;
+      padding:0.6rem 1.2rem;
+      border-radius:0.5rem;
+      cursor:pointer;
+      font-size:1rem;
+    }
+    .btn-primary:hover { background: var(--primary-dark); }
+    .btn-share {
+      background: var(--accent);
+      color:var(--primary-dark);
+      border:none;
+      padding:0.5rem 1rem;
+      border-radius:0.4rem;
+      margin:0.3rem;
+      cursor:pointer;
+    }
+    .badge-grid {
+      display:grid;
+      grid-template-columns:repeat(auto-fill, minmax(80px,1fr));
+      gap:0.8rem;
+      margin:1rem 」、「
+    }
+    .badge {
+      background: var(--badge);
+      border-radius:50%;
+      width:80px;
+      height:80px;
+      display:flex;
+      align-items:center;
+      justify:center;
+      font-size:2rem;
+      color:#fff;
+      box-shadow:0 2px 5px rgba(0,0,0,0.2);
+    }
+    .mentor-grid {
+      display:grid;
+      grid-template-columns:repeat(auto-fill, minmax(150px,1fr));
+      gap:1rem;
+      margin:1rem 0;
+    }
+    .mentor-card {
+      background:#fff;
+      border:1px solid #ddd;
+      border-radius:0.6rem;
+      padding:1rem;
+      text-align:center;
+    }
+    .mentor-card h4 { margin:0.5rem 0; }
+    .offline-hint {
+      position:fixed;
+      bottom:0;
+      left:0;
+      right:0;
+      background:#ffcfdf;
+      text-align:center;
+      padding:0.5rem;
+      font-weight:bold;
+      display:none;
+    }
+    .offline-hint.show { display:block; }
+    .evangelism {
+      margin:1rem;
+      background:#e8f4f8;
+      border-left:4px solid var(--primary);
+      padding:1rem;
+    }
+    .modal {
+      position:fixed;
+      inset:0;
+      background:rgba(0,0,0,0.5);
+      display:flex;
+      align-items:center;
+      justify:center;
+      z-index:1000;
+    }
+    .modal.hidden { display:none; }
+    .modal .content {
+      background:#fff;
+      padding:1.5rem;
+      border-radius:0.8rem;
+      max-width:90%;
+    }
+    @media (min-width:768px) {
+      .section { max-width:800px; margin:auto; }
+      .app-header nav ul { justify-content:center; }
+    }
+  </style>
+
+  <script>
+    // Données statiques
+    const challenges = [
+      { id:1, title:"Matinée de prière", desc:"Priez avant l'école pendant 7 jours consécutifs.", badge:"🙏" },
+      { id:2, title:"Cours de partage", desc:"Partagez une vérité biblique avec un camarade après-midi.", badge:"📚" },
+      { id:3, title:"Service communautaire", desc:"Aidez un voisin âgé pendant 2 heures.", badge:"🤝" },
+      { id:4, title:"Réflexion digitale", desc:"Publiez une réflexion spirituelle sur Instagram.", badge:"📸" },
+      { id:5, title:"Lecture de la semaine", desc:"Lisez un chapitre de la Bible et résumez-le.", badge:"📖" }
+    ];
+
+    const mentors = [
+      { name:"Père Mukasa", focus:"Leadership spirituel", contact:"p.mukasa@eglise.org" },
+      { name:"Jeune Leader Aïda", focus:"Technologie et médias", contact:"aida@ylh.org" },
+      { name:"Coach Jean", focus:"Développement des compétences", contact:"jean.coach@ylh.org" },
+      { name:"Étudiante Christine", focus:"Études et équilibre vie scolaire", contact:"christine@ylh.org" }
+    ];
+
+    // État
+    let earnedBadges = JSON.parse(localStorage.getItem('ylh_badges') || '[]');
+    let completedChallenges = JSON.parse(localStorage.getItem('ylh_challenges') || '[]');
+
+    // UI helpers
+    function showSection(id) {
+      document.querySelectorAll('.section').for transient = true;
+      document.querySelectorAll('.section').forEach(sec => sec.classList.add('hidden'));
+      const target = document.getElementById(id);
+      if (target) target.classList.remove('hidden');
+    }
+
+    // Navigation
+    document.querySelectorAll('.nav-link').forEach(link => {
+      link.addEventListener('click', e => {
+        e.preventDefault();
+        const href = link.getAttribute('href').substring(1);
+        showSection(href);
+      });
+    });
+
+    // Nouveau défi quotidien
+    const dailyEl = document.getElementById('daily-challenge');
+    const challengeTextEl = document.getElementById('challenge-text');
+    const newChallengeBtn = document.getElementById('new-challenge-btn');
+
+    function renderDailyChallenge() {
+      const today = new Date().toDateString();
+      const saved = localStorage.getItem('ylh_daily');
+      if (saved) {
+        const { date, challenge } = JSON.parse(saved);
+        if (date<footer class="tlm"><p>Créé par <a href="https://thelampsmark.pages.dev/" target="_blank" rel="noopener">The Lamp's Mark</a></p><p>Cette application est gratuite. Pour la soutenir : mobile money Africell <strong>0906253050</strong></p><p><a href="https://wa.me/?text=Youth%20Leadership%20Hub%20%E2%80%93%20D%C3%A9fis%2C%20Badges%20et%20Mentorat%20Chr%C3%A9tien%20https%3A%2F%2Fdanymumbere.github.io%2Fyouth-leadership-hub%2F" target="_blank" rel="noopener">Partager sur WhatsApp</a> · <a href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fdanymumbere.github.io%2Fyouth-leadership-hub%2F" target="_blank" rel="noopener">Facebook</a> · <button type="button" id="tlm-share">Partager</button></p></footer><script src="app.js"></script><script>document.getElementById('tlm-share').onclick=()=>navigator.share?navigator.share({title:document.title,url:location.href}):navigator.clipboard.writeText(location.href).then(()=>alert('Lien copié'))</script></body></html>
